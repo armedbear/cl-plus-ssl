@@ -94,7 +94,7 @@ script:
   - "ros list installed"
   - "ros -e '(progn
                (format t \"(lisp-implementation-type): ~A~%\" (lisp-implementation-type))
-               (format t \"(lisp-implementation-version): ~A~%\" (lisp-implementation-version))
+               (format t \"(lisp-implementation-version): ~A~%\" (multiple-value-list (lisp-implementation-version)))
                (format t \"*features*: ~A~%\" *features*)
                (format t \"(asdf:asdf-version): ~A~%\" (asdf:asdf-version)))'"
   - "ros -e '(when (uiop:getenvp \"READTABLE_CASE_INVERT\")
