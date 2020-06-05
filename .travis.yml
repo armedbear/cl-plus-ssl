@@ -105,13 +105,12 @@ script:
              (progn
                 (format t \"Loading abcl-asdf and switching maven repo URL to HTTPS (see https://github.com/armedbear/abcl/issues/151)~%\")
                 (require :abcl-contrib)
-                (format t \"abcl-contrib loaded...~%\")
+                (format t \"abcl-contrib required...~%\")
                 (require :abcl-asdf)
-                (format t \"abcl-asdf loaded...~%\")
-                (format t \"*features*: ~A~%\" *features*)
-                (setf (symbol-value (read-from-string \"abcl-asdf::*default-repository*\"))
-                      \"https://repo1.maven.org/maven2/\")
-                (format t \"abcl-asdf::*default-repository* assigned the HTTPS URL.~%\"))'
+                (format t \"abcl-asdf required...~%\")
+                (require :jna)
+                (format t \"jna required...~%\")
+                (format t \"*features*: ~A~%\" *features*))'
          -e '(ql:quickload :cffi)'
          -e '(format t \"cffi loaded.~%\")'
          -e '(cffi:load-foreign-library \"test/run-on-many-lisps-and-openssls/openssl-releases/bin/'$OPENSSL-${BITS}bit'/lib/libcrypto.so\")'
